@@ -15,7 +15,6 @@ def run_game():
     while True:
         gf.check_events()
 
-        screen.fill(ss_settings.bg_color)
-        pygame.display.flip()
+        gf.update_screen(screen, ss_settings)
 
 run_game()
