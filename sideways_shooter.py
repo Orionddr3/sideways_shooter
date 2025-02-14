@@ -2,6 +2,7 @@ import sys
 import pygame
 
 from settings import Settings
+import game_functions as gf
 
 def run_game():
     """Initialize pygame, settings and a screen object."""
@@ -12,9 +13,7 @@ def run_game():
 
     # Main loop for the game
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.check_events()
 
         screen.fill(ss_settings.bg_color)
         pygame.display.flip()
