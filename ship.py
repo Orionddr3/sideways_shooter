@@ -17,9 +17,23 @@ class Ship():
         # Place the ship at the left center of the screen.
         self.rect.centery = self.screen_rect.centery
         self.rect.left = self.screen_rect.left
+        self.y = self.rect.centery
 
         self.speed_factor = ss_settings.speed_factor
+
+        # Movement flags
+        self.moving_down = False
+        self.moving_up = False
     
+    def update(self):
+        """Update the ship's position based on the movement flags."""
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
+            self.y += self.speed_factor
+        if self.moving_up and self.rect.top > 0:
+            self.y -= self.speed_factor
+        
+        self.rect.centery = self.y
+
 
     def blitme(self):
         """Draw the ship at its current location."""
