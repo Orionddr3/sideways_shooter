@@ -1,3 +1,4 @@
+"""This module contains the Ship class."""
 import pygame
 
 class Ship():
@@ -18,3 +19,8 @@ class Ship():
         self.rect.left = self.screen_rect.left
 
         self.speed_factor = ss_settings.speed_factor
+    
+
+    def blitme(self):
+        """Draw the ship at its current location."""
+        self.screen.blit(self.image, self.rect)
